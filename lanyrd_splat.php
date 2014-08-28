@@ -30,7 +30,8 @@ class lanyrdSplat extends WP_Widget {
 	$num_events = esc_attr( $instance['num_events'] );
 	$lanyrd_template = esc_attr( $instance['lanyrd_template'] );
 	$lanyrd_type = esc_attr( $instance['lanyrd_type'] );
-	$contents = '<div class="lanyrd-target-splat"><a href="http://lanyrd.com/profile/' . $lanyrd_user . '/" class="lanyrd-splat lanyrd-number-' . $num_events . ' lanyrd-type-' . $lanyrd_type . ' lanyrd-context-future lanyrd-template-' . $lanyrd_template .'" rel="me"></a></div>';
+	$lanyrd_context = esc_attr( $instance['lanyrd_context'] );
+	$contents = '<div class="lanyrd-target-splat"><a href="http://lanyrd.com/profile/' . $lanyrd_user . '/" class="lanyrd-splat lanyrd-number-' . $num_events . ' lanyrd-type-' . $lanyrd_type . ' lanyrd-context-' . $lanyrd_context . ' lanyrd-template-' . $lanyrd_template .'" rel="me"></a></div>';
 	
 	wp_enqueue_script( 'lanyrd_badge_script', 'http://cdn.lanyrd.net/badges/person-v1.min.js' );
         
@@ -49,6 +50,7 @@ class lanyrdSplat extends WP_Widget {
 	$instance['num_events'] = strip_tags( $new_instance['num_events'] );
 	$instance['lanyrd_template'] = strip_tags( $new_instance['lanyrd_template'] );
 	$instance['lanyrd_type'] = strip_tags( $new_instance['lanyrd_type'] );
+	$instance['lanyrd_context'] = strip_tags( $new_instance['lanyrd_context'] );
         return $instance;
     }
 
@@ -66,6 +68,7 @@ class lanyrdSplat extends WP_Widget {
 	$num_events = esc_attr( $instance['num_events'] );
 	$lanyrd_template = esc_attr( $instance['lanyrd_template'] );
 	$lanyrd_type = esc_attr( $instance['lanyrd_type'] );
+	$lanyrd_context = esc_attr( $instance['lanyrd_context'] );
         ?>
 		 <p>
           <label for="<?php echo $this->get_field_id( 'lanyrd_title' ); ?>"><?php _e('Lanyrd title:'); ?></label> 
@@ -92,7 +95,7 @@ class lanyrdSplat extends WP_Widget {
           <label for="<?php echo $this->get_field_id( 'lanyrd_type' ); ?>"><?php _e('Type of events'); ?></label> 
 		  <select id="<?php echo $this->get_field_id( 'lanyrd_type' ); ?>"  name ="<?php echo $this->get_field_name( 'lanyrd_type' ); ?>">
 		<?
-		$type_arr = array( 'speaking', 'involved', 'attending', 'tracking','all' );
+		$type_arr = array( 'all', 'speaking', 'involved', 'attending', 'tracking' );
 		foreach ($type_arr as $i => $type_value) {
 			echo '<option value="'. $type_value . '"';
 			if ( $type_value == $lanyrd_type ) echo ' selected ';
@@ -101,6 +104,21 @@ class lanyrdSplat extends WP_Widget {
 		?>
 		</select>
 	</p>
+  
+  <p>
+          <label for="<?php echo $this->get_field_id( 'lanyrd_context' ); ?>"><?php _e('Context of events'); ?></label> 
+		  <select id="<?php echo $this->get_field_id( 'lanyrd_context' ); ?>"  name ="<?php echo $this->get_field_name( 'lanyrd_context' ); ?>">
+		<?
+		$context_arr = array( 'all', 'past', 'future' );
+		foreach ($context_arr as $i => $context_value) {
+			echo '<option value="'. $context_value . '"';
+			if ( $context_value == $lanyrd_context ) echo ' selected ';
+			echo '>' . $context_value . '</option>';
+		}
+		?>
+		</select>
+	</p>
+  
          <p>
           <label for="<?php echo $this->get_field_id( 'lanyrd_template' ); ?>"><?php _e('Template'); ?> <a href='http://lanyrd.com/services/badges/docs/#content-splat'>(more info)</a></label> 
 	  <select id="<?php echo $this->get_field_id( 'lanyrd_template' ); ?>"  name ="<?php echo $this->get_field_name( 'lanyrd_template' ); ?>">
