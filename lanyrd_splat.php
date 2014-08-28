@@ -36,7 +36,7 @@ class lanyrdSplat extends WP_Widget {
         
 	if ( !empty( $lanyrd_title ) ) { echo $before_title . $lanyrd_title . $after_title; };
 	echo $before_widget;
-	if ( $contents ) echo $before_title . $contents . $after_title;
+	if ( $contents ) echo  $contents ;
 	echo $after_widget;
 	
     }
