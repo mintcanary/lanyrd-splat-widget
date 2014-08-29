@@ -82,7 +82,7 @@ class lanyrdSplat extends WP_Widget {
           <label for="<?php echo $this->get_field_id( 'num_events' ); ?>"><?php _e('Num of events to show:'); ?></label> 
 	  <select id="<?php echo $this->get_field_id( 'num_events' ); ?>"  name ="<?php echo $this->get_field_name('num_events'); ?>">
 	<?
-	$num_arr = array( 1,2,3,4,6,8,9,12,16,18,24 );
+	$num_arr = array( 1,2,3,4,6,8,12,16,18,24,30 );
 	foreach ($num_arr as $i => $value) {
 		echo '<option value="'. $value . '"';
 		if ( $value == $num_events ) echo ' selected ';
