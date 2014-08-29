@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Lanyrd Splat Widget
-Plugin URI: http://gingerbreaddesign.co.uk/wordpress/lanyrd-splat-widget/
-Description: Simple Lanyrd Badge Splat Widget 
-Author: Todd Halfpenny
-Version: 0.0.2
-Author URI: gingerbreaddesign.co.uk/todd
+Plugin URI: https://github.com/mintcanary/lanyrd-splat-widget/
+Description: Lanyrd Splat widget, based on version 0.0.2 of Todd Halfpenny's plugin
+Author: Sam Smith
+Version: 0.0.3
+Author URI: http://mintcanary.com/
 */
 
 
