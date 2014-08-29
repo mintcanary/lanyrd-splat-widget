@@ -31,7 +31,7 @@ class lanyrdSplat extends WP_Widget {
 	$lanyrd_template = esc_attr( $instance['lanyrd_template'] );
 	$lanyrd_type = esc_attr( $instance['lanyrd_type'] );
 	$lanyrd_context = esc_attr( $instance['lanyrd_context'] );
-	$contents = '<div class="lanyrd-target-splat ' . $num_events . '-events"><a href="http://lanyrd.com/profile/' . $lanyrd_user . '/" class="lanyrd-splat lanyrd-number-' . $num_events . ' lanyrd-type-' . $lanyrd_type . ' lanyrd-context-' . $lanyrd_context . ' lanyrd-template-' . $lanyrd_template .'" rel="me"></a></div>';
+	$contents = '<div class="lanyrd-target-splat events-'. $num_events .'"><a href="http://lanyrd.com/profile/' . $lanyrd_user . '/" class="lanyrd-splat lanyrd-number-' . $num_events . ' lanyrd-type-' . $lanyrd_type . ' lanyrd-context-' . $lanyrd_context . ' lanyrd-template-' . $lanyrd_template .'" rel="me"></a></div>';
 	
 	wp_enqueue_script( 'lanyrd_badge_script', 'http://cdn.lanyrd.net/badges/person-v1.min.js' );
         
